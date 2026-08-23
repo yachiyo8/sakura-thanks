@@ -29,7 +29,7 @@ body {
 h1 {
   font-size: 1.25rem;
   text-align: center;
-  margin-block-start: 30px;
+  margin-block-start: 20px;
   letter-spacing: 16px;
 }
 
@@ -190,8 +190,12 @@ h1 {
 /* 使い方 */
 .usage-card {
   background-color: #e5e5e5;
-  padding: 1rem;
-  margin: 0 1rem 16px;
+  padding: 10px;
+  margin: -10px 1rem 10px;
+}
+
+.usage-title{
+  font-size: 1.2rem;
 }
 
 /* 入力フォーム */
@@ -223,7 +227,6 @@ h1 {
   max-width: 430px; /* .containerの最大幅に合わせる */
   box-sizing: border-box;
   background: #fff;
-  z-index: -1;
 }
 
 /* ------------------------------
