@@ -222,6 +222,7 @@ h1 {
   max-width: 430px; /* .containerの最大幅に合わせる */
   box-sizing: border-box;
   background: #fff;
+  z-index: -1;
 }
 
 /* ------------------------------
