@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- 検索結果に載せない設定 -->
+  <meta name="robots" content="noindex" />
+  <!-- OGP（SNSシェア用） -->
+  <meta property="og:title" content="ありがとうの花">
+  <meta property="og:description" content="匿名で感謝のメッセージを共有するWebサイト">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://[ユーザー名].github.io/sakura-thanks/">
+  <meta property="og:image" content="https://[ユーザー名].github.io/sakura-thanks/ogp.png">
+  <meta property="og:site_name" content="sakura-thanks">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- web fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+  <!-- css -->
+  <link rel="stylesheet" href="style.css">
+  <title>ありがとうの花</title>
+</head>
+<body>
+  <!-- Layer -2: 背景アニメーション（最背面） -->
+  <div class="bg-move"></div>
+  <!-- Layer -1: 桜の花（背景の上） -->
+  <div id="sakura-container"></div>
+  <!-- Layer 0: メインコンテンツ（最前面） -->
+  <div class="container">
+    <h1>ありがとうの花</h1>
+    <!-- 2秒後に表示させるグループ1 -->
+    <div class="fade-in-target" id="usage-form-section">
+      <!-- 使い方 -->
+      <section class="usage-card">
+        <h2 class="usage-title">使い方</h2>
+        <p class="usage-text">
+          どこかにいる同級生へ向けて匿名で「ありがとう」の気持ちを届けてみませんか？<br>
+          あなたの温かいメッセージが花となって満開の桜を咲かせます。<br>
+          テキストフォームに文字を入力して投稿してみよう！
+        </p>
+      </section>
+      <!-- 入力フォーム -->
+      <form class="message-form">
+        <textarea class="message-textarea" maxlength="100"
+          placeholder="ここにメッセージを入れます。まだ実装してないから入力しないでね。"></textarea>
+        <button type="submit" class="btn btn-submit">メッセージを投稿する</button>
+      </form>
+    </div>
+    <!-- メッセージカウンター（常時表示） -->
+    <div class="counter">
+      <p class="counter-label">メッセージカウンター</p>
+      <p class="counter-num"></p>
+    </div>
+    <button type="button" class="btn btn-list">みんなのメッセージをみる</button>
+    <p class="copy">&copy; 2026 sakuraProject</p>
+  </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+/* ============================================
+   Project: sakura-thanks (ありがとうの桜)
+   Author: yachiyo8
+   Version: 1.0.0
+   Description: 情緒設計Webサイトのスタイル定義
+   ============================================ */
+
+/* ------------------------------
+   1. Base & Reset Styles
+   ------------------------------ */
+p, h2 {
+  margin: 0;
+}
+
+body {
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #3b3b3b;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-size: 1.25rem;
+  text-align: center;
+  margin-block-start: 30px;
+  letter-spacing: 16px;
+}
+
+.container {
+  width: 100%;
+  max-width: 430px; /* iPhone Pro Max等も収まる上限サイズ */
+  margin: 0 auto;
+  position: relative;
+}
+
+.btn {
+  width: 100%;
+  padding: 0.6rem;
+  background: #fff;
+  border: 1px solid #333;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+/* メッセージカウンター */
+.counter {
+  position: fixed;
+  bottom: 7%;
+  left: 50%;
+  transform: translateX(-50%);
+
+  .counter-label {
+    font-size: 0.875rem;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+
+  .counter-num {
+    font-size: 1.5rem;
+    border: 1px solid #c3c3c3;
+    margin: 10px 0 0;
+
+    span {
+      padding: 0 6px;
+      border-right: 1px solid #c3c3c3; /* 数字と数字の間の仕切り線 */
+
+      &:last-child {
+        border-right: none; /* 一番右の仕切り線だけ消す */
+      }
+    }
+  }
+}
+
+.message-text {
+  /* 登録したメッセージ用 \n による改行をそのまま画面に反映させる設定 */
+  white-space: pre-line;
+}
+
+.copy{
+  color: #c3c3c3;
+  font-size: 12px;
+  position: fixed;
+  bottom: 2%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ------------------------------
+   2. Sakura
+   ------------------------------ */
+/* 桜の花びらの初期カラーとネオン光彩の設定 */
+.sakura-petals path {
+  fill:#f2d3f0;
+  stroke: #fff;
+  stroke-width: 2px;
+  filter:drop-shadow(0 0 6px #f0abfc) drop-shadow(0 0 12px #e879f9);
+  transition: all 0.3s ease;
+}
+
+/* 描画エリア */
+#sakura-container {
+  position: fixed;
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; と同じ（width/heightも不要） */
+  pointer-events: none;
+  z-index: -1; /* 背景に配置 */
+}
+/* 桜を包む枠 */
+.sakura {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  animation: float 3.2s ease infinite;
+  overflow: visible;
+
+}
+/* SVG本体を親要素いっぱいに広げる */
+.sakura-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible; /* ★これが必要！SVG枠外の光や影を表示させる */
+}
+
+/* 浮遊アニメーション */
+@keyframes float {
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0) ;
+  }
+
+  50% {
+    transform: scale(1.1) translate(0, -8px) ;
+  }
+}
+
+/* ------------------------------
+   3. Message form
+   ------------------------------ */
+   /* 初期状態：透明 ＆ 少し下に配置 */
+.fade-in-target {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 1s ease, transform 1s ease;
+  pointer-events: none; /* 非表示時はクリック判定を無効化 */
+}
+
+/* 2秒後に付与されるクラス */
+.fade-in-target.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto; /* 表示されたら操作可能に */
+}
+
+/* 使い方 */
+.usage-card {
+  background-color: #e5e5e5;
+  padding: 1rem;
+  margin: 0 1rem 16px;
+}
+
+/* 入力フォーム */
+.message-form{
+  margin: 0 1rem;
+}
+
+.message-textarea {
+  width: 100%;
+  height: 100px;
+  box-sizing: border-box;
+  padding: 0.5rem;
+}
+
+.btn-submit{
+  color: #fff;
+  background: #303030;
+}
+
+/* ------------------------------
+   4. Message List
+   ------------------------------ */
+.btn-list {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem); /* 左右の画面端に余白を作る */
+  max-width: 430px; /* .containerの最大幅に合わせる */
+  box-sizing: border-box;
+  background: #fff;
+}
+
+/* ------------------------------
+   5. Background Styles
+      Generated with mshr.app
+      (https://www.mshr.app/)
+   ------------------------------ */
+@keyframes bg-move {
+  0% {
+    --s-start-0: 3%;
+    --s-end-0: 79%;
+    --y-0: 90%;
+    --x-0: 0%;
+    --c-0: rgb(236, 247, 253);
+    --y-1: 35%;
+    --c-1: rgb(225, 240, 249);
+    --s-start-1: 3%;
+    --s-end-1: 79%;
+    --x-1: 98%;
+  }
+
+  100% {
+    --s-start-0: 4%;
+    --s-end-0: 67%;
+    --y-0: 16%;
+    --x-0: 24%;
+    --c-0: rgb(255, 255, 255);
+    --y-1: 100%;
+    --c-1: rgb(225, 240, 249);
+    --s-start-1: 4%;
+    --s-end-1: 67%;
+    --x-1: 62%;
+  }
+}
+
+@property --s-start-0 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 3%;
+}
+
+@property --s-end-0 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 79%;
+}
+
+@property --y-0 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 90%;
+}
+
+@property --x-0 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+@property --c-0 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: rgb(239, 250, 255);
+}
+
+@property --y-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 35%;
+}
+
+@property --c-1 {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: hsla(204, 100%, 92%, 1);
+}
+
+@property --s-start-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 3%;
+}
+
+@property --s-end-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 79%;
+}
+
+@property --x-1 {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 98%;
+}
+
+.bg-move {
+  position: fixed;
+  inset: 0; /* top: 0; left: 0; right: 0; bottom: 0; と同義 */
+  z-index: -2; /* 桜（-1）よりさらに奥に配置 */
+  pointer-events: none;
+  /* グラデーションメッシュとアニメーション設定 */
+  --y-0: 90%;
+  --x-0: 0%;
+  --c-0: rgb(225, 243, 254);
+  --y-1: 35%;
+  --c-1: rgb(225, 240, 249);
+  --x-1: 98%;
+  background-color: rgb(244, 244, 244);
+  background-image:
+    radial-gradient(
+      circle at var(--x-0) var(--y-0),
+      var(--c-0) var(--s-start-0),
+      transparent var(--s-end-0)
+    ),
+    radial-gradient(
+      circle at var(--x-1) var(--y-1),
+      var(--c-1) var(--s-start-1),
+      transparent var(--s-end-1)
+    );
+  animation: bg-move 10s linear infinite alternate;
+  background-blend-mode: normal, normal;
+  will-change: transform, opacity;
+  contain: paint;
+}
