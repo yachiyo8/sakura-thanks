@@ -12,6 +12,11 @@ p, h2 {
   margin: 0;
 }
 
+/* 非表示用クラス */
+.is-hidden {
+  display: none !important;
+}
+
 body {
   font-family: "DotGothic16", sans-serif;
   font-weight: 400;
@@ -82,9 +87,10 @@ h1 {
   color: #c3c3c3;
   font-size: 12px;
   position: fixed;
-  bottom: 2%;
+  bottom: 1.6%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: 1;
 }
 
 /* ------------------------------
@@ -192,7 +198,58 @@ h1 {
 }
 
 /* ------------------------------
-   5. Background Styles
+   5. Message List View
+   ------------------------------ */
+.list-view-container {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+   .list-title {
+  font-size: 1.25rem;
+  margin: 20px 0;
+  letter-spacing: 2px;
+}
+
+/* カードを並べるコンテナ（固定ボタンと被らないよう下部に余白） */
+#message-card-container {
+  padding-bottom: 100px;
+}
+
+/* メッセージカード */
+.message-card {
+  border: 1px solid #3b3b3b;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 1rem;
+  margin-bottom: 8px;
+}
+
+.card-id {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 1px;
+}
+
+.card-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  white-space: pre-line; /* 改行を有効化 */
+}
+
+/* 下部固定ボタンエリア */
+.btn-back-wrapper {
+  position: fixed;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 2rem);
+  max-width: 430px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+
+/* ------------------------------
+   6. Background Styles
       Generated with mshr.app
       (https://www.mshr.app/)
    ------------------------------ */

@@ -9,7 +9,49 @@ const initialMessages = [
     formattedID: "00000000",
     message: "For my dear friends.\n私と話してくれてありがとう🐰",
     approved: true,
+  },/*
+  {
+    id: 2,
+    formattedID: "00000000",
+    message: "ここにメッセージを入れます。最大文字数は100文字です。この文章はダミーです。文字の大きさ、量、字間、行間等を確認するために入れています。この文章の文字量が100文字です。素敵なメッセージをどうぞ。",
+    approved: true,
   },
+  {
+    id: 3,
+    formattedID: "00000000",
+    message: "test",
+    approved: true,
+  },
+  {
+    id: 4,
+    formattedID: "00000000",
+    message: "test",
+    approved: true,
+  },
+  {
+    id: 5,
+    formattedID: "00000000",
+    message: "test",
+    approved: true,
+  },
+  {
+    id: 6,
+    formattedID: "00000000",
+    message: "test",
+    approved: true,
+  },
+  {
+    id: 7,
+    formattedID: "00000000",
+    message: "test",
+    approved: true,
+  },
+  {
+    id: 8,
+    formattedID: "00000000",
+    message: "test",
+    approved: true,
+  },*/
 ];
 
 /**
@@ -49,6 +91,19 @@ function renderSakura(count) {
      }
 }
 
+// メッセージカード一覧をHTMLに描画する関数
+function renderMessageList(messages) {
+  const container = document.getElementById("message-card-container");
+  if (!container) return;
+
+  container.innerHTML = messages
+    .map((item) => `<div class="message-card">
+      <div class="card-id">${item.formattedID}</div>
+      <p class="card-text">${item.message}</p>
+    </div>`)
+    .join("");
+}
+
 // 初期化処理（画面の準備が整ったら実行）
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. カウンターの表示処理 ---
@@ -83,7 +138,32 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }, 1500);
 
-  // --- 5. 未実装の部分の仮処理アラート
+  // --- 5. 画面切り替え処理（トップ ⇄ 一覧） ---
+  const topView = document.getElementById("top-view");
+  const listView = document.getElementById("list-view");
+  const btnShowList = document.getElementById("btn-show-list");
+  const btnBackTop = document.getElementById("btn-back-top");
+
+  // 「みんなのメッセージをみる」ボタンクリック時
+  if (btnShowList) {
+    btnShowList.addEventListener("click", () => {
+      renderMessageList(initialMessages);
+      if (topView) topView.classList.add("is-hidden");
+      if (listView) listView.classList.remove("is-hidden");
+      window.scrollTo(0, 0);
+    });
+  }
+
+  // 「トップにもどる」ボタンクリック時
+  if (btnBackTop) {
+    btnBackTop.addEventListener("click", () => {
+      if (listView) listView.classList.add("is-hidden");
+      if (topView) topView.classList.remove("is-hidden");
+      window.scrollTo(0, 0);
+    });
+}
+
+  // --- 99. 未実装の部分の仮処理アラート
   // 投稿フォームの処理
   const messageForm = document.querySelector(".message-form");
   const usageFormSection = document.getElementById("usage-form-section");
@@ -100,5 +180,4 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     });
   }
-
 });
