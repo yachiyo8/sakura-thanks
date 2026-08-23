@@ -55,6 +55,7 @@ h1 {
   bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
+  z-index: -1;
 
   .counter-label {
     font-size: 0.875rem;
