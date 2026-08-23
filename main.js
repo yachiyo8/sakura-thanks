@@ -9,7 +9,7 @@ const initialMessages = [
     formattedID: "00000000",
     message: "For my dear friends.\n私と話してくれてありがとう🐰",
     approved: true,
-  },
+  },/*
   {
     id: 2,
     formattedID: "00000000",
@@ -51,7 +51,7 @@ const initialMessages = [
     formattedID: "00000000",
     message: "test",
     approved: true,
-  },
+  },*/
 ];
 
 /**
@@ -104,7 +104,22 @@ function renderMessageList(messages) {
     .join("");
 }
 
-// 初期化処理（画面の準備が整ったら実行）
+  // テキストを1文字ずつ表示する関数
+  function typeWriter(element, text, speed = 150) {
+    element.textContent = ""; // 一旦テキストを空にする
+    let i = 0;
+
+    const timer = setInterval(() => {
+      if (i < text.length) {
+        element.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(timer); //文字を出し切ったらタイマー停止
+      }
+    }, speed); //文字が出るスピード（ミリ秒）
+}
+
+// ★初期化処理（画面の準備が整ったら実行）★
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. カウンターの表示処理 ---
   const counterEl = document.querySelector(".counter-num");
@@ -130,13 +145,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // --- 3. 桜の描画処理 ---
   renderSakura(initialMessages.length);
 
-  // --- 4. 2秒（2000ms）後に出現させるHTML
+  // --- 4. 数秒後に出現させるHTML(使い方・フォーム)
   setTimeout(() => {
     const fadeTargets = document.querySelectorAll(".fade-in-target");
     fadeTargets.forEach((target) => {
       target.classList.add("is-visible");
     });
-  }, 1500);
+  }, 2500);
 
   // --- 5. 画面切り替え処理（トップ ⇄ 一覧） ---
   const topView = document.getElementById("top-view");
@@ -161,7 +176,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (topView) topView.classList.remove("is-hidden");
       window.scrollTo(0, 0);
     });
-}
+  }
+
+  // --- 6. タイトルのタイプライター表示
+  const titleEl = document.querySelector("#top-view h1");
+  if (titleEl) {
+    typeWriter(titleEl, "ありがとうの花", 150)
+  }
 
   // --- 99. 未実装の部分の仮処理アラート
   // 投稿フォームの処理
