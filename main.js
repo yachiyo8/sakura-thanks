@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
     fadeTargets.forEach((target) => {
       target.classList.add("is-visible");
     });
-  }, 2500);
+  }, 3000);
 
   // --- 5. 画面切り替え処理（トップ ⇄ 一覧） ---
   const topView = document.getElementById("top-view");

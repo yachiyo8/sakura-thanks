@@ -196,7 +196,8 @@ h1 {
 }
 
 .usage-title{
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  padding-bottom: 6px;
 }
 
 /* 入力フォーム */
@@ -204,9 +205,16 @@ h1 {
   margin: 0 1rem;
 }
 
+/* iOS Safariの自動ズーム防止（font-sizeを16px以上にする） */
+input[type="text"],
+input[type="email"],
+textarea {
+  font-size: 16px !important; /* 16px以上にすることでズームが発生しなくなります */
+}
+
 .message-textarea {
   width: 100%;
-  height: 100px;
+  height: 120px;
   box-sizing: border-box;
   padding: 0.5rem;
 }
