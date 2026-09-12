@@ -4,20 +4,30 @@
    Version: 2.0.0
    Description: 情緒設計Webサイトのスタイル定義
    ============================================ */
+/*
+   1. Base & Reset Styles
+   2. Sakura
+   3. Message form
+   4. Message List
+   5. Message List View
+   6. Background Styles
+*/
 
 /* ------------------------------
    1. Base & Reset Styles
    ------------------------------ */
-p, h2 {
-  margin: 0;
+/* 変数登録 */
+   :root{
+  --border-radius:4px
 }
+
 
 /* 非表示用クラス */
 .is-hidden {
   display: none !important;
 }
 
-body {
+body, p, h2, a {
   font-family: "DotGothic16", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -34,29 +44,42 @@ h1 {
 }
 
 .container {
-  width: 100%;
-  max-width: 430px; /* iPhone Pro Max等も収まる上限サイズ */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;/* iOS Safari用 */
+  max-width: 430px;/* iPhone Pro Max等も収まる上限サイズ */
   margin: 0 auto;
-  position: relative;
+  position: relative;/* 子要素（桜やボタン等）の絶対配置の基準点 */
+}
+
+.top-view-container{
+  /*トップ画面エリア：余った縦スペースをすべて引き伸ばす */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .btn {
   width: 100%;
   padding: 0.6rem;
-  background: #fff;
+  background: #ebebeb;
   border: 1px solid #333;
   cursor: pointer;
   box-sizing: border-box;
   font-size: 1rem;
+  border-radius: var(--border-radius);
 }
 
 /* メッセージカウンター */
 .counter {
-  position: fixed;
+  /* position: fixed;
   bottom: 7%;
   left: 50%;
   transform: translateX(-50%);
-  z-index: -1;
+  z-index: -1; */
+  margin-top: auto; /* ★最重要：上の余白をすべて押し出して下へ配置 */
+  padding-top: 24px;
 
   .counter-label {
     font-size: 0.875rem;
@@ -65,9 +88,10 @@ h1 {
   }
 
   .counter-num {
+    width: fit-content;
     font-size: 1.5rem;
     border: 1px solid #c3c3c3;
-    margin: 4px 0 0;
+    margin: 4px auto 0;
     background: rgba(255 255 255 / 0.8);
 
     span {
@@ -89,11 +113,9 @@ h1 {
 .copy{
   color: #c3c3c3;
   font-size: 12px;
-  position: fixed;
-  bottom: 1.6%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
+  text-align: center;
+  margin-top: 8px;
+  opacity: 0.4;
 }
 
 /* ------------------------------
@@ -118,8 +140,8 @@ h1 {
 /* 桜を包む枠・アニメーション設定 */
 .sakura {
   position: absolute;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   animation: float 3.2s ease infinite, petal-glow 6s ease-in infinite;
   overflow: visible;
@@ -191,8 +213,11 @@ h1 {
 /* 使い方 */
 .usage-card {
   background-color: #e5e5e5;
-  padding: 10px;
+  padding: 12px;
   margin: -10px 1rem 10px;
+  letter-spacing: 1px;
+  border-radius: var(--border-radius);
+  border: thick double #bec9ce;
 }
 
 .usage-title{
@@ -217,6 +242,7 @@ textarea {
   height: 120px;
   box-sizing: border-box;
   padding: 0.5rem;
+  border-radius: var(--border-radius);
 }
 
 .btn-submit{
@@ -228,14 +254,11 @@ textarea {
    4. Message List
    ------------------------------ */
 .btn-list {
-  position: fixed;
-  bottom: 20%;
-  left: 50%;
-  transform: translateX(-50%);
   width: calc(100% - 2rem); /* 左右の画面端に余白を作る */
   max-width: 430px; /* .containerの最大幅に合わせる */
   box-sizing: border-box;
-  background: #fff;
+  background: #99fcff;
+  margin: 24px auto 10px;
 }
 
 /* ------------------------------
@@ -261,13 +284,13 @@ textarea {
 .message-card {
   border: 1px solid #3b3b3b;
   background: rgba(255, 255, 255, 0.8);
-  padding: 1rem;
+  padding: 8px 12px;
   margin-bottom: 8px;
 }
 
 .card-id {
   font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.2rem;
   letter-spacing: 1px;
 }
 
@@ -394,7 +417,7 @@ textarea {
   --y-1: 35%;
   --c-1: rgb(225, 240, 249);
   --x-1: 98%;
-  background-color: rgb(244, 244, 244);
+  background-color: rgb(224 233 234);
   background-image:
     radial-gradient(
       circle at var(--x-0) var(--y-0),
