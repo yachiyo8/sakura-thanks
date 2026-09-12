@@ -112,9 +112,9 @@ h1 {
 
 .copy{
   color: #c3c3c3;
-  font-size: 12px;
+  font-size: 10px;
   text-align: center;
-  margin-top: 8px;
+  margin: 8px 0;
   opacity: 0.4;
 }
 
