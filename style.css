@@ -47,7 +47,7 @@ a:active {
 }
 
 h1 {
-  font-size: 1.25rem;
+  font-size: 1.45rem;
   text-align: center;
   margin: 24px 0;
   letter-spacing: 16px;
@@ -88,6 +88,8 @@ h1 {
   font-family: inherit;
   -webkit-appearance: none;
   appearance: none;
+  filter: drop-shadow(0 1px 3px #b3b3b3);
+
 }
 
 /* メッセージカウンター */
@@ -143,6 +145,7 @@ h1 {
   text-align: center;
   margin: 8px 0;
   opacity: 0.4;
+  margin-top: auto; /* ★最重要：余った縦スペースをすべて上に作って最下部へ押し出す */
 }
 
 /* ------------------------------
@@ -316,10 +319,16 @@ textarea {
   box-sizing: border-box;
 }
 
-   .list-title {
+.list-title {
   font-size: 1.25rem;
   margin: 20px 0;
   letter-spacing: 2px;
+
+  @media (max-width: 375px),
+  (max-height: 670px) {
+    font-size: 1.25rem;
+    margin: 20px 0 14px;
+  }
 }
 
 /* カードを並べるコンテナ（固定ボタンと被らないよう下部に余白） */
@@ -333,6 +342,7 @@ textarea {
   background: rgba(255, 255, 255, 0.8);
   padding: 8px 12px;
   margin-bottom: 8px;
+  border-radius: var(--border-radius);
 }
 
 .card-id {
