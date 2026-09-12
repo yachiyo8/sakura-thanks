@@ -73,18 +73,22 @@ h1 {
 
 /* メッセージカウンター */
 .counter {
-  /* position: fixed;
-  bottom: 7%;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1; */
   margin-top: auto; /* ★最重要：上の余白をすべて押し出して下へ配置 */
   padding-top: 24px;
+
+  /* 画面幅が狭い、または縦幅が短い端末用の調整 */
+  @media (max-width: 375px), (max-height: 670px) {
+    padding-top: 12px;
+  }
 
   .counter-label {
     font-size: 0.875rem;
     text-align: center;
     letter-spacing: 2px;
+
+    @media (max-width: 375px), (max-height: 670px) {
+      font-size: 0.75rem; /* ラベルを少し小さく */
+    }
   }
 
   .counter-num {
@@ -93,6 +97,10 @@ h1 {
     border: 1px solid #c3c3c3;
     margin: 4px auto 0;
     background: rgba(255 255 255 / 0.8);
+
+    @media (max-width: 375px), (max-height: 670px) {
+      font-size: 1.2rem; /* カウンター数字を小さく */
+    }
 
     span {
       padding: 0 6px;
@@ -218,6 +226,10 @@ h1 {
   letter-spacing: 1px;
   border-radius: var(--border-radius);
   border: thick double #bec9ce;
+
+    @media (max-width: 375px), (max-height: 670px) {
+    padding: 8px;
+  }
 }
 
 .usage-title{
@@ -239,9 +251,10 @@ textarea {
 
 .message-textarea {
   width: 100%;
-  height: 120px;
+  height: 100px;
   box-sizing: border-box;
   padding: 0.5rem;
+  border: 1px solid #333;
   border-radius: var(--border-radius);
 }
 
@@ -296,7 +309,7 @@ textarea {
 
 .card-text {
   font-size: 0.9375rem;
-  line-height: 1.6;
+  line-height: 1.5;
   white-space: pre-line; /* 改行を有効化 */
 }
 
