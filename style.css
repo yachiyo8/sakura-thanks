@@ -84,7 +84,7 @@ h1 {
   width: 100%;
   padding: 0.6rem;
   background: #ebebeb;
-  border: 1px solid #333;
+  border: 1px solid #3b3b3b;
   cursor: pointer;
   box-sizing: border-box;
   font-size: 1rem;
@@ -303,7 +303,7 @@ textarea {
   width: calc(100% - 2rem); /* 左右の画面端に余白を作る */
   max-width: 430px; /* .containerの最大幅に合わせる */
   box-sizing: border-box;
-  background: #c1c1ff;
+  background: #dcd6ff;
   margin: 24px auto 10px;
 
   /* リンク状態・訪問済み状態の文字色を固定 */
@@ -377,7 +377,7 @@ textarea {
 
 /* トップにもどるボタン */
 .btn-top{
-  background: #c1c1ff;
+  background: #dcd6ff;
 }
 
 /* ------------------------------
