@@ -48,8 +48,12 @@ a:active {
 h1 {
   font-size: 1.25rem;
   text-align: center;
-  margin-block-start: 20px;
+  margin: 24px 0;
   letter-spacing: 16px;
+
+  @media (max-width: 375px), (max-height: 670px) {
+   margin: 24px 0 14px;
+  }
 }
 
 .container {
@@ -231,7 +235,7 @@ h1 {
 .usage-card {
   background-color: #e5e5e5;
   padding: 12px;
-  margin: -10px 1rem 10px;
+  margin: 0 1rem 10px;
   letter-spacing: 1px;
   border-radius: var(--border-radius);
   border: thick double #bec9ce;
@@ -244,6 +248,11 @@ h1 {
 .usage-title{
   font-size: 1.1rem;
   padding-bottom: 6px;
+
+  @media (max-width: 375px), (max-height: 670px) {
+    font-size: 1rem;
+    padding-bottom: 2px;
+  }
 }
 
 /* 入力フォーム */
@@ -342,6 +351,11 @@ textarea {
   max-width: 430px;
   box-sizing: border-box;
   z-index: 2;
+}
+
+/* トップにもどるボタン */
+.btn-top{
+  background: #99fcff;
 }
 
 /* ------------------------------
