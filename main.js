@@ -9,7 +9,7 @@ const initialMessages = [
     formattedID: "00000000",
     message: "For my dear friends.\n私と話してくれてありがとう🐰",
     approved: true,
-  },
+  },/*
   {
     id: 2,
     formattedID: "00000001",
@@ -87,7 +87,7 @@ const initialMessages = [
     formattedID: "00000013",
     message: "test",
     approved: true,
-  },
+  },*/
 ];
 
 /**
