@@ -34,6 +34,11 @@ body, p, h2 {
   color: var(--primary-black, #3b3b3b);
   margin: 0;
   padding: 0;
+  /* Safari / Chrome 向けのアンチエイリアス最適化 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 描画精度の最適化:フォントの滲み解消用 */
+  text-rendering: optimizeLegibility;
 }
 
 /* aタグのすべての状態に対して文字色を固定 */
@@ -53,7 +58,8 @@ h1 {
   letter-spacing: 16px;
 
   @media (max-width: 375px), (max-height: 670px) {
-   margin: 24px 0 14px;
+    font-size: 1.25rem;
+    margin: 24px 0 14px;
   }
 }
 
@@ -170,8 +176,8 @@ h1 {
 /* 桜を包む枠・アニメーション設定 */
 .sakura {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   display: inline-block;
   animation: float 3.2s ease infinite, petal-glow 6s ease-in infinite;
   overflow: visible;
@@ -297,7 +303,7 @@ textarea {
   width: calc(100% - 2rem); /* 左右の画面端に余白を作る */
   max-width: 430px; /* .containerの最大幅に合わせる */
   box-sizing: border-box;
-  background: #99fcff;
+  background: #c1c1ff;
   margin: 24px auto 10px;
 
   /* リンク状態・訪問済み状態の文字色を固定 */
@@ -371,7 +377,7 @@ textarea {
 
 /* トップにもどるボタン */
 .btn-top{
-  background: #99fcff;
+  background: #c1c1ff;
 }
 
 /* ------------------------------
@@ -434,7 +440,7 @@ textarea {
 @property --c-0 {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgb(239, 250, 255);
+  initial-value: rgb(224, 231, 234);
 }
 
 @property --y-1 {
@@ -446,7 +452,7 @@ textarea {
 @property --c-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: hsla(204, 100%, 92%, 1);
+  initial-value: rgb(210, 229, 241);
 }
 
 @property --s-start-1 {
@@ -479,7 +485,7 @@ textarea {
   --y-1: 35%;
   --c-1: rgb(225, 240, 249);
   --x-1: 98%;
-  background-color: rgb(224 233 234);
+  background-color: rgba(213, 233, 211, 0.6);
   background-image:
     radial-gradient(
       circle at var(--x-0) var(--y-0),

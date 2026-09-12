@@ -19,8 +19,8 @@ const initialMessages = [
   {
     id: 3,
     formattedID: "00000002",
-    message: "test",
-    approved: true,
+    message: "これは不適切なメッセージです。表示させないから。",
+    approved: false,
   },
   {
     id: 4,
@@ -76,6 +76,18 @@ const initialMessages = [
     message: "test",
     approved: true,
   },
+  {
+    id: 13,
+    formattedID: "00000012",
+    message: "test",
+    approved: true,
+  },
+  {
+    id: 14,
+    formattedID: "00000013",
+    message: "test",
+    approved: true,
+  },
 ];
 
 /**
@@ -84,7 +96,24 @@ const initialMessages = [
  * @returns {string} 8桁に整形された文字列（例: "00000000"）
  */
 function formatCount(count) {
-  return String(count).padStart(8, 0);
+  return String(count).padStart(8, '0');
+}
+
+/**
+ * メッセージカウンターの表示を更新する関数
+ * @param {number} count - 表示する件数
+ * @returns
+ */
+function updateCounter(count) {
+  const counterEl = document.getElementById("counter-display");
+  if (!counterEl) return;
+    // 数字を1文字ずつ <span>0</span> に分解してセット
+    // 「split 分解する ➔ map 包む ➔ join 結合する」の動き
+  const formattedCount = formatCount(count);
+  counterEl.innerHTML = formattedCount
+    .split("")
+    .map(num => `<span>${num}</span>`)
+    .join("");
 }
 
 // 桜の花を件数分生成する関数
@@ -146,20 +175,9 @@ function renderMessageList(messages) {
 // ★初期化処理（画面の準備が整ったら実行）★
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. カウンターの表示処理 ---
-  const counterEl = document.querySelector(".counter-num");
-  const currentCount = initialMessages[0].id;
+  // 配列の件数（initialMessages.length = 14件）を渡してカウンターを更新
+  updateCounter(initialMessages.length);
 
-    // 関数を呼び出して画面にセット
-    // 数字を1文字ずつ <span>0</span> に分解してセット
-    // 「split 分解する ➔ map 包む ➔ join 結合する」の動き
-
-    if (counterEl) {
-      const formattedCount = formatCount(currentCount);
-      counterEl.innerHTML = formattedCount
-      .split("")
-      .map(num => `<span>${num}</span>`)
-        .join("");
-  }
   // --- 2. メッセージの表示処理（★改行処理） ---
   const messageEl = document.querySelector(".message-text");
   if (messageEl) {
