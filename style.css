@@ -333,7 +333,7 @@ textarea {
 
 /* カードを並べるコンテナ（固定ボタンと被らないよう下部に余白） */
 #message-card-container {
-  padding-bottom: 100px;
+  padding-bottom: 60px;
 }
 
 /* メッセージカード */
