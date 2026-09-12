@@ -175,8 +175,9 @@ function renderMessageList(messages) {
 // ★初期化処理（画面の準備が整ったら実行）★
 document.addEventListener("DOMContentLoaded", () => {
   // --- 1. カウンターの表示処理 ---
-  // 配列の件数（initialMessages.length = 14件）を渡してカウンターを更新
-  updateCounter(initialMessages.length);
+  // 配列の件数 ＊1件（初期データのみ）のときは 1 - 1 = 0 が渡される
+  const userMessageCount = Math.max(0, initialMessages.length - 1);
+  updateCounter(userMessageCount);
 
   // --- 2. メッセージの表示処理（★改行処理） ---
   const messageEl = document.querySelector(".message-text");
