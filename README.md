@@ -1,3 +1,7 @@
+<p>
+  <img src="images/ogp.png" alt="ありがとうの花 OGP" width="50%">
+</p>
+
 # ありがとうの花 (sakura-thanks)
 
 > **「“匿名”を、冷笑ではなく、温かい光を感じるコミュニケーションのために。」**  
