@@ -398,8 +398,6 @@ textarea {
   width: 100vw;
   height: 100vh;
   border-radius: 50%;
-  /* background: rgba(220, 240, 252, 0.95); */
-  /* background: rgba(199, 235, 249, 0.95); */
   background: rgba(210, 228, 238, 0.5);
   transform-origin: top left; /* ★左上を支点に固定 */
   animation: blob-pivot-1 6s infinite ease-in-out alternate;
@@ -414,7 +412,6 @@ textarea {
   width: 110vw;
   height: 110vh;
   border-radius: 50%;
-  /* background: rgba(203, 222, 234, 0.75); */
   background: rgba(240, 243, 246, 0.6);
   transform-origin: top left; /* ★左上を支点に固定 */
   animation: blob-pivot-2 6s infinite ease-in-out alternate;
