@@ -157,15 +157,6 @@ h1 {
 /* ------------------------------
    2. Sakura
    ------------------------------ */
-/* 桜の花びらの初期カラーとネオン光彩の設定 */
-.sakura-petals path {
-  fill:#f2d3f0;
-  stroke: #fff;
-  stroke-width: 2px;
-  filter:drop-shadow(0 0 6px #f0abfc) drop-shadow(0 0 12px #e879f9);
-  transition: all 0.3s ease;
-}
-
 /* 描画エリア */
 #sakura-container {
   position: fixed;
@@ -182,8 +173,8 @@ h1 {
   animation: float 3.2s ease infinite, petal-glow 6s ease-in infinite;
   overflow: visible;
   opacity: 0; /* JSで生成された直後は透明にしてチラつきを防止 */
-
 }
+
 /* SVG本体を親要素いっぱいに広げる */
 .sakura-svg {
   width: 100%;
@@ -211,19 +202,20 @@ h1 {
   /* 0%, 100%: ペールピンク ＆ 強いネオン光彩 */
   0%, 100% {
     opacity: 1;
-    fill: #ffdbe5; /* ペールピンク */
+    fill: #ffcfe8; /* ペールピンク */
     /* 強いネオン効果 */
-    filter: drop-shadow(0 0 6px #bfe3fb) drop-shadow(0 0 12px #bfe3fb);
+    filter: drop-shadow(0 0 6px #bfd7f9) drop-shadow(0 0 12px #bfd7f9);
   }
 
-  /* 50%: ペールブルー ＆ 少しぼかした淡い光彩（光のゆらめき） */
+  /* 50%: 中間色 ＆ 少しぼかした淡い光彩（光のゆらめき） */
   33% {
-    fill: #f9e7fe;
+    fill: #f6dcfc;
+    filter: drop-shadow(0 0 6px #d9c1f1) drop-shadow(0 0 12px #d9c1f1);
   }
     66% {
-    fill: #d0effc; /* ペールブルー (OpenProcessingの色定義) */
+    fill: #b8e2f9; /* ペールブルー */
     /* ネオン効果を少し弱く、ぼかし量を増やす（ゆらめき表現） */
-    filter: drop-shadow(0 0 6px #f0c6f7) drop-shadow(0 0 12px #f0c6f7);
+    filter: drop-shadow(0 0 6px #fbcbf0) drop-shadow(0 0 12px #fbcbf0);
     opacity: 0.9; /* 光が淡くなるのを表現 */
   }
 }
