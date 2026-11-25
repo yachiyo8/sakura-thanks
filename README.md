@@ -1,5 +1,5 @@
 <p>
-  <img src="images/ogp.png" alt="ありがとうの花 OGP" width="50%">
+  <img src="public/images/ogp.png" alt="ありがとうの花 OGP" width="50%">
 </p>
 
 # ありがとうの花 (sakura-thanks)
