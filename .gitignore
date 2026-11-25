@@ -1,0 +1,6 @@
+node_modules/
+*.log
+yarn.lock
+.env
+users.htpasswd
+.DS_Store

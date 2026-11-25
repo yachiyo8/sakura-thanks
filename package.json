@@ -1,0 +1,22 @@
+{
+  "name": "sakura-thanks",
+  "version": "3.0.0",
+  "description": "ありがとうの花 (sakura-thanks)",
+  "main": "index.js",
+  "scripts": {
+    "start": "sh run.sh",
+    "test": "node --test"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@prisma/client": "5.13.0",
+    "cookies": "0.9.1",
+    "dayjs": "1.11.10",
+    "http-auth": "4.2.0",
+    "prisma": "5.13.0",
+    "pug": "3.0.3"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
